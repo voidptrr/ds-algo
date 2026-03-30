@@ -3,7 +3,7 @@
 struct Solution;
 
 impl Solution {
-    fn dfs(
+    fn backtrack(
         n: i32,
         open_p: i32,
         close_p: i32,
@@ -17,13 +17,13 @@ impl Solution {
 
         if open_p < n {
             cand.push('(');
-            Self::dfs(n, open_p + 1, close_p, cand, result);
+            Self::backtrack(n, open_p + 1, close_p, cand, result);
             cand.pop();
         }
 
         if close_p < open_p {
             cand.push(')');
-            Self::dfs(n, open_p, close_p + 1, cand, result);
+            Self::backtrack(n, open_p, close_p + 1, cand, result);
             cand.pop();
         }
     }
@@ -32,7 +32,7 @@ impl Solution {
         let mut result = Vec::<String>::new();
         let mut cand = String::with_capacity((n * 2) as usize);
 
-        Self::dfs(n, 0, 0, &mut cand, &mut result);
+        Self::backtrack(n, 0, 0, &mut cand, &mut result);
 
         result
     }
