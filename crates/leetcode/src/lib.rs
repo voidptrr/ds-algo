@@ -3,4 +3,5 @@ pub mod jump_game;
 pub mod jump_game_2;
 pub mod permutations;
 pub mod permutations_2;
+pub mod rotate_image;
 pub mod subsets;
