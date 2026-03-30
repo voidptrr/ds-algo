@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/jump-game
 
-struct Solution;
+pub struct Solution;
 
 impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {
@@ -21,6 +21,17 @@ impl Solution {
     }
 }
 
-fn main() {
-    println!("{}", Solution::can_jump(vec![2, 3, 1, 1, 4]));
+#[cfg(test)]
+mod tests {
+    use super::Solution;
+
+    #[test]
+    fn example_true() {
+        assert!(Solution::can_jump(vec![2, 3, 1, 1, 4]));
+    }
+
+    #[test]
+    fn example_false() {
+        assert!(!Solution::can_jump(vec![3, 2, 1, 0, 4]));
+    }
 }

@@ -3,12 +3,18 @@
   craneLib,
   src,
   cargoArtifacts,
-  package,
+  rustToolchain,
   root,
 }: let
-  rustFmtCheck = craneLib.cargoFmt {
-    inherit src;
-  };
+  rustFmtCheck =
+    pkgs.runCommand "ds-algo-rust-fmt-check"
+    {
+      nativeBuildInputs = [rustToolchain];
+    } ''
+      cd ${src}
+      cargo fmt --all --check
+      touch "$out"
+    '';
 
   nixFmtCheck =
     pkgs.runCommand "ds-algo-nix-fmt-check"
@@ -22,8 +28,6 @@
       touch "$out"
     '';
 in {
-  ds-algo = package;
-
   fmt = pkgs.runCommand "ds-algo-fmt-check" {} ''
     test -e ${rustFmtCheck}
     test -e ${nixFmtCheck}
@@ -32,11 +36,11 @@ in {
 
   clippy = craneLib.cargoClippy {
     inherit src cargoArtifacts;
-    cargoClippyExtraArgs = "--workspace --all-targets --all-features -- -D warnings";
+    cargoClippyExtraArgs = "-p leetcode --all-targets --all-features -- -D warnings";
   };
 
   test = craneLib.cargoTest {
     inherit src cargoArtifacts;
-    cargoExtraArgs = "--workspace";
+    cargoExtraArgs = "-p leetcode";
   };
 }

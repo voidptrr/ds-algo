@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/generate-parentheses
 
-struct Solution;
+pub struct Solution;
 
 impl Solution {
     fn backtrack(
@@ -38,7 +38,26 @@ impl Solution {
     }
 }
 
-fn main() {
-    println!("{:?}", Solution::generate_parenthesis(1));
-    println!("{:?}", Solution::generate_parenthesis(3));
+#[cfg(test)]
+mod tests {
+    use super::Solution;
+
+    fn sorted(mut input: Vec<String>) -> Vec<String> {
+        input.sort();
+        input
+    }
+
+    #[test]
+    fn example_one() {
+        let expected = vec!["((()))", "(()())", "(())()", "()(())", "()()()"];
+        let expected =
+            expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
+
+        assert_eq!(sorted(Solution::generate_parenthesis(3)), sorted(expected));
+    }
+
+    #[test]
+    fn example_two() {
+        assert_eq!(Solution::generate_parenthesis(1), vec!["()"]);
+    }
 }

@@ -45,19 +45,11 @@
         src = craneLib.cleanCargoSource ./.;
         commonArgs = {
           inherit src;
+          pname = "ds-algo-workspace";
+          version = "0.1.0";
           strictDeps = true;
         };
         cargoArtifacts = craneLib.buildDepsOnly commonArgs;
-
-        package = import ./nix/package.nix {
-          inherit
-            pkgs
-            craneLib
-            src
-            cargoArtifacts
-            rustToolchain
-            ;
-        };
 
         checks = import ./nix/checks.nix {
           inherit
@@ -65,18 +57,12 @@
             craneLib
             src
             cargoArtifacts
-            package
+            rustToolchain
             ;
           root = ./.;
         };
       in {
         formatter = pkgs.alejandra;
-
-        packages.default = package;
-        apps.default = {
-          type = "app";
-          program = "${package}/bin/ds-algo";
-        };
 
         inherit checks;
 

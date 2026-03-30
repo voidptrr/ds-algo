@@ -1,9 +1,9 @@
 // https://leetcode.com/problems/jump-game-ii
 
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    fn jump(nums: Vec<i32>) -> i32 {
+    pub fn jump(nums: Vec<i32>) -> i32 {
         let mut jumps = 0;
         let mut current_end = 0usize;
         let mut farthest = 0usize;
@@ -26,6 +26,17 @@ impl Solution {
     }
 }
 
-fn main() {
-    println!("{}", Solution::jump(vec![2, 3, 1, 1, 4]));
+#[cfg(test)]
+mod tests {
+    use super::Solution;
+
+    #[test]
+    fn example_one() {
+        assert_eq!(Solution::jump(vec![2, 3, 1, 1, 4]), 2);
+    }
+
+    #[test]
+    fn example_two() {
+        assert_eq!(Solution::jump(vec![2, 3, 0, 1, 4]), 2);
+    }
 }

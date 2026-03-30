@@ -1,0 +1,28 @@
+name: Pre-merge 
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: pre-merge-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flake-check:
+    name: Nix flake check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v17
+
+      - name: Configure Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v8
+
+      - name: Run format/lint/test checks
+        run: nix flake check --print-build-logs
