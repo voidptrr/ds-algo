@@ -8,7 +8,9 @@ impl Solution {
         let mut current_end = 0usize;
         let mut farthest = 0usize;
 
-        for (index, jump) in nums.iter().enumerate().take(nums.len().saturating_sub(1)) {
+        for (index, jump) in
+            nums.iter().enumerate().take(nums.len().saturating_sub(1))
+        {
             let reach = index + (*jump as usize);
             if reach > farthest {
                 farthest = reach;

@@ -3,7 +3,12 @@
 struct Solution;
 
 impl Solution {
-    fn backtrack(input: &[i32], path: &mut Vec<i32>, result: &mut Vec<Vec<i32>>, start: usize) {
+    fn backtrack(
+        input: &[i32],
+        path: &mut Vec<i32>,
+        result: &mut Vec<Vec<i32>>,
+        start: usize,
+    ) {
         result.push(path.clone());
 
         for index in start..input.len() {

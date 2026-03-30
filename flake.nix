@@ -1,5 +1,5 @@
 {
-  description = "ds-algo Rust development flake";
+  description = "ds-algo development flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
