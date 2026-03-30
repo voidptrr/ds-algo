@@ -1,0 +1,9 @@
+# Nix
+result
+result-*
+
+# Rust
+target/
+
+# OS Specific
+.DS_Store
