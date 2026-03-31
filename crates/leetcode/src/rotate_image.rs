@@ -3,7 +3,7 @@
 pub struct Solution;
 
 impl Solution {
-    pub fn rotate(matrix: &mut Vec<Vec<i32>>) {
+    pub fn rotate(matrix: &mut [Vec<i32>]) {
         let size = matrix.len();
 
         for row in 0..matrix.len() {
