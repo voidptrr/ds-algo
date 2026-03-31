@@ -12,17 +12,24 @@ impl Solution {
         result.push(path.clone());
 
         for index in start..input.len() {
+            if index > start && input[index] == input[index - 1] {
+                continue;
+            }
+
             path.push(input[index]);
             Self::backtrack(input, path, result, index + 1);
             path.pop();
         }
     }
 
-    pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
+    pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
         let mut result = Vec::new();
         let mut path = Vec::new();
 
-        Self::backtrack(&nums, &mut path, &mut result, 0);
+        let mut nums_mut = nums.clone();
+        nums_mut.sort();
+
+        Self::backtrack(&nums_mut, &mut path, &mut result, 0);
 
         result
     }
@@ -42,16 +49,14 @@ mod tests {
         let expected = vec![
             vec![],
             vec![1],
-            vec![2],
-            vec![3],
             vec![1, 2],
-            vec![1, 3],
-            vec![2, 3],
-            vec![1, 2, 3],
+            vec![1, 2, 2],
+            vec![2],
+            vec![2, 2],
         ];
 
         assert_eq!(
-            sorted_nested(Solution::subsets(vec![1, 2, 3])),
+            sorted_nested(Solution::subsets_with_dup(vec![1, 2, 2])),
             sorted_nested(expected)
         );
     }
@@ -59,7 +64,7 @@ mod tests {
     #[test]
     fn example_two() {
         assert_eq!(
-            sorted_nested(Solution::subsets(vec![0])),
+            sorted_nested(Solution::subsets_with_dup(vec![0])),
             vec![vec![], vec![0]]
         );
     }

@@ -6,3 +6,4 @@ pub mod permutations;
 pub mod permutations_2;
 pub mod rotate_image;
 pub mod subsets;
+pub mod subsets_2;
