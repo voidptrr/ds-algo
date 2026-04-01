@@ -11,11 +11,6 @@ impl Solution {
     ) {
         if ip.len() == 4 && start == input.len() {
             let full_ip = ip.join(".");
-
-            if result.contains(&full_ip) {
-                return;
-            }
-
             result.push(full_ip);
             return;
         }
