@@ -4,6 +4,7 @@ pub mod jump_game;
 pub mod jump_game_2;
 pub mod permutations;
 pub mod permutations_2;
+pub mod restore_ip_addresses;
 pub mod rotate_image;
 pub mod subsets;
 pub mod subsets_2;

@@ -8,8 +8,4 @@ pkgs.mkShell {
     rust-analyzer
     alejandra
   ];
-
-  shellHook = ''
-    export RUST_BACKTRACE=1
-  '';
 }
