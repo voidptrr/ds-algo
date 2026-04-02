@@ -7,7 +7,6 @@ impl Solution {
         start: usize,
         input: &Vec<i32>,
         result: &mut Vec<Vec<i32>>,
-        target: i32,
         path: &mut Vec<i32>,
         remain: i32,
     ) {
@@ -30,7 +29,6 @@ impl Solution {
                 index + 1,
                 input,
                 result,
-                target,
                 path,
                 remain - input[index],
             );
@@ -48,14 +46,7 @@ impl Solution {
         let mut candidates_mut = candidates.clone();
         candidates_mut.sort();
 
-        Self::backtrack(
-            0,
-            &candidates_mut,
-            &mut result,
-            target,
-            &mut path,
-            target,
-        );
+        Self::backtrack(0, &candidates_mut, &mut result, &mut path, target);
 
         result
     }

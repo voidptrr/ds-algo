@@ -7,7 +7,6 @@ impl Solution {
         start: usize,
         input: &Vec<i32>,
         result: &mut Vec<Vec<i32>>,
-        target: i32,
         path: &mut Vec<i32>,
         remain: i32,
     ) {
@@ -22,14 +21,7 @@ impl Solution {
 
         for index in start..input.len() {
             path.push(input[index]);
-            Self::backtrack(
-                index,
-                input,
-                result,
-                target,
-                path,
-                remain - input[index],
-            );
+            Self::backtrack(index, input, result, path, remain - input[index]);
             path.pop();
         }
     }
@@ -38,7 +30,7 @@ impl Solution {
         let mut result = Vec::<Vec<i32>>::new();
         let mut path = Vec::<i32>::new();
 
-        Self::backtrack(0, &candidates, &mut result, target, &mut path, target);
+        Self::backtrack(0, &candidates, &mut result, &mut path, target);
 
         result
     }
