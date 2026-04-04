@@ -1,6 +1,7 @@
 pub mod ambiguous_coordinates;
 pub mod combination_sum;
 pub mod combination_sum_2;
+pub mod combination_sum_3;
 pub mod combinations;
 pub mod generate_parentheses;
 pub mod gray_code;
