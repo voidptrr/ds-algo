@@ -55,19 +55,18 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::Solution;
-
-    fn sorted(mut input: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        input.sort();
-        input
-    }
+    use crate::test_utils::sorted_nested_i32;
 
     #[test]
     fn example_one() {
         let expected =
             vec![vec![1, 1, 6], vec![1, 2, 5], vec![1, 7], vec![2, 6]];
         assert_eq!(
-            sorted(Solution::combination_sum2(vec![10, 1, 2, 7, 6, 1, 5], 8)),
-            sorted(expected)
+            sorted_nested_i32(Solution::combination_sum2(
+                vec![10, 1, 2, 7, 6, 1, 5],
+                8
+            )),
+            sorted_nested_i32(expected)
         );
     }
 
@@ -76,7 +75,7 @@ mod tests {
         let expected = vec![vec![1, 2, 2], vec![5]];
         assert_eq!(
             Solution::combination_sum2(vec![2, 5, 2, 1, 2], 5),
-            sorted(expected)
+            sorted_nested_i32(expected)
         );
     }
 }

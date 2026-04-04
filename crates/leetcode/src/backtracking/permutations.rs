@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/permutations-ii
+// https://leetcode.com/problems/permutations
 
 pub struct Solution;
 
@@ -7,7 +7,7 @@ impl Solution {
         result: &mut Vec<Vec<i32>>,
         input: &[i32],
         cand: &mut Vec<i32>,
-        used: &mut Vec<bool>,
+        used: &mut [bool],
     ) {
         if cand.len() == input.len() {
             result.push(cand.clone());
@@ -19,11 +19,6 @@ impl Solution {
                 continue;
             }
 
-            if index > 0 && input[index] == input[index - 1] && !used[index - 1]
-            {
-                continue;
-            }
-
             used[index] = true;
             cand.push(n);
             Self::backtrack(result, input, cand, used);
@@ -32,15 +27,12 @@ impl Solution {
         }
     }
 
-    pub fn permute_unique(nums: Vec<i32>) -> Vec<Vec<i32>> {
+    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
         let mut result: Vec<Vec<i32>> = Vec::new();
-        let mut cand: Vec<i32> = Vec::with_capacity(nums.len());
+        let mut cand = Vec::<i32>::with_capacity(nums.len());
         let mut used = vec![false; nums.len()];
 
-        let mut nums_sorted = nums;
-        nums_sorted.sort();
-
-        Self::backtrack(&mut result, &nums_sorted, &mut cand, &mut used);
+        Self::backtrack(&mut result, &nums, &mut cand, &mut used);
 
         result
     }
@@ -49,23 +41,10 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::Solution;
-
-    fn sorted_nested(mut input: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        input.sort();
-        input
-    }
+    use crate::test_utils::sorted_nested_i32;
 
     #[test]
     fn example_one() {
-        let expected = vec![vec![1, 1, 2], vec![1, 2, 1], vec![2, 1, 1]];
-        assert_eq!(
-            sorted_nested(Solution::permute_unique(vec![1, 1, 2])),
-            sorted_nested(expected)
-        );
-    }
-
-    #[test]
-    fn unique_input_still_permuted() {
         let expected = vec![
             vec![1, 2, 3],
             vec![1, 3, 2],
@@ -76,8 +55,21 @@ mod tests {
         ];
 
         assert_eq!(
-            sorted_nested(Solution::permute_unique(vec![1, 2, 3])),
-            sorted_nested(expected)
+            sorted_nested_i32(Solution::permute(vec![1, 2, 3])),
+            sorted_nested_i32(expected)
         );
+    }
+
+    #[test]
+    fn example_two() {
+        assert_eq!(
+            sorted_nested_i32(Solution::permute(vec![0, 1])),
+            vec![vec![0, 1], vec![1, 0]]
+        );
+    }
+
+    #[test]
+    fn example_three() {
+        assert_eq!(Solution::permute(vec![1]), vec![vec![1]]);
     }
 }

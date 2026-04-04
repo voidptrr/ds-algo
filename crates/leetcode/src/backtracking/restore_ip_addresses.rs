@@ -49,11 +49,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::Solution;
-
-    fn sorted(mut input: Vec<String>) -> Vec<String> {
-        input.sort();
-        input
-    }
+    use crate::test_utils::sorted_strings;
 
     #[test]
     fn example_one() {
@@ -62,8 +58,10 @@ mod tests {
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
         assert_eq!(
-            sorted(Solution::restore_ip_addresses("25525511135".to_owned())),
-            sorted(expected)
+            sorted_strings(Solution::restore_ip_addresses(
+                "25525511135".to_owned()
+            )),
+            sorted_strings(expected)
         );
     }
 
@@ -74,8 +72,8 @@ mod tests {
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
         assert_eq!(
-            sorted(Solution::restore_ip_addresses("0000".to_owned())),
-            sorted(expected)
+            sorted_strings(Solution::restore_ip_addresses("0000".to_owned())),
+            sorted_strings(expected)
         );
     }
 
@@ -92,8 +90,8 @@ mod tests {
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
         assert_eq!(
-            sorted(Solution::restore_ip_addresses("101023".to_owned())),
-            sorted(expected)
+            sorted_strings(Solution::restore_ip_addresses("101023".to_owned())),
+            sorted_strings(expected)
         );
     }
 }

@@ -35,11 +35,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::Solution;
-
-    fn sorted_nested(mut input: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        input.sort();
-        input
-    }
+    use crate::test_utils::sorted_nested_i32;
 
     #[test]
     fn example_one() {
@@ -53,8 +49,8 @@ mod tests {
         ];
 
         assert_eq!(
-            sorted_nested(Solution::combine(4, 2)),
-            sorted_nested(expected)
+            sorted_nested_i32(Solution::combine(4, 2)),
+            sorted_nested_i32(expected)
         );
     }
 

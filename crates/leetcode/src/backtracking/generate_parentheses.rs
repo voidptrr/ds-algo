@@ -41,11 +41,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::Solution;
-
-    fn sorted(mut input: Vec<String>) -> Vec<String> {
-        input.sort();
-        input
-    }
+    use crate::test_utils::sorted_strings;
 
     #[test]
     fn example_one() {
@@ -53,7 +49,10 @@ mod tests {
         let expected =
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
-        assert_eq!(sorted(Solution::generate_parenthesis(3)), sorted(expected));
+        assert_eq!(
+            sorted_strings(Solution::generate_parenthesis(3)),
+            sorted_strings(expected)
+        );
     }
 
     #[test]

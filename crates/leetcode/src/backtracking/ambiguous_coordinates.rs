@@ -65,11 +65,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::Solution;
-
-    fn sorted(mut input: Vec<String>) -> Vec<String> {
-        input.sort();
-        input
-    }
+    use crate::test_utils::sorted_strings;
 
     #[test]
     fn example_one() {
@@ -78,8 +74,8 @@ mod tests {
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
         assert_eq!(
-            sorted(Solution::ambiguous_coordinates("(123)".to_owned())),
-            sorted(expected)
+            sorted_strings(Solution::ambiguous_coordinates("(123)".to_owned())),
+            sorted_strings(expected)
         );
     }
 
@@ -90,8 +86,10 @@ mod tests {
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
         assert_eq!(
-            sorted(Solution::ambiguous_coordinates("(00011)".to_owned())),
-            sorted(expected)
+            sorted_strings(Solution::ambiguous_coordinates(
+                "(00011)".to_owned()
+            )),
+            sorted_strings(expected)
         );
     }
 
@@ -109,8 +107,10 @@ mod tests {
             expected.into_iter().map(str::to_owned).collect::<Vec<_>>();
 
         assert_eq!(
-            sorted(Solution::ambiguous_coordinates("(0123)".to_owned())),
-            sorted(expected)
+            sorted_strings(Solution::ambiguous_coordinates(
+                "(0123)".to_owned()
+            )),
+            sorted_strings(expected)
         );
     }
 }

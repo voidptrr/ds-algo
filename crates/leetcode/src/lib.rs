@@ -1,15 +1,12 @@
-pub mod ambiguous_coordinates;
-pub mod combination_sum;
-pub mod combination_sum_2;
-pub mod combination_sum_3;
-pub mod combinations;
-pub mod generate_parentheses;
-pub mod gray_code;
-pub mod jump_game;
-pub mod jump_game_2;
-pub mod permutations;
-pub mod permutations_2;
-pub mod restore_ip_addresses;
-pub mod rotate_image;
-pub mod subsets;
-pub mod subsets_2;
+pub mod array;
+pub mod backtracking;
+
+pub use array::{gray_code, jump_game, jump_game_2, rotate_image};
+pub use backtracking::{
+    ambiguous_coordinates, combination_sum, combination_sum_2,
+    combination_sum_3, combinations, generate_parentheses, permutations,
+    permutations_2, restore_ip_addresses, subsets, subsets_2,
+};
+
+#[cfg(test)]
+pub mod test_utils;
