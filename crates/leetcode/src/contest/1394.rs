@@ -14,10 +14,8 @@ impl Solution {
 
         let mut largest = i32::MIN;
         for (k, v) in &freqs {
-            if k == v {
-                if *k > largest {
-                    largest = *k;
-                }
+            if k == v && *k > largest {
+                largest = *k;
             }
         }
 
