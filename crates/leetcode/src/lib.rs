@@ -10,6 +10,7 @@ pub use backtracking::{
 };
 pub use contest::problem_1108;
 pub use contest::problem_1480;
+pub use contest::problem_3028;
 pub use contest::problem_3099;
 
 #[cfg(test)]
