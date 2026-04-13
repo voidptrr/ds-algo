@@ -9,7 +9,7 @@ impl Solution {
 
         for n in nums {
             if n < 0 {
-                boundary -= n * -1;
+                boundary -= -n;
             } else {
                 boundary += n;
             }
