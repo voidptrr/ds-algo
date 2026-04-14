@@ -1,18 +1,11 @@
-pub mod array;
-pub mod backtracking;
-pub mod contest;
+pub mod problems;
 
-pub use array::{gray_code, jump_game, jump_game_2, rotate_image};
-pub use backtracking::{
-    ambiguous_coordinates, combination_sum, combination_sum_2,
-    combination_sum_3, combinations, generate_parentheses, permutations,
-    permutations_2, restore_ip_addresses, subsets, subsets_2,
+pub use problems::{
+    problem_22, problem_39, problem_40, problem_45, problem_46, problem_47,
+    problem_48, problem_55, problem_77, problem_78, problem_89, problem_90,
+    problem_93, problem_216, problem_816, problem_1108, problem_1394,
+    problem_1480, problem_3028, problem_3099,
 };
-pub use contest::problem_1108;
-pub use contest::problem_1394;
-pub use contest::problem_1480;
-pub use contest::problem_3028;
-pub use contest::problem_3099;
 
 #[cfg(test)]
 pub mod test_utils;
