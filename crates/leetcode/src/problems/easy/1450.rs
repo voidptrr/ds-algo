@@ -12,12 +12,13 @@ impl Solution {
         let mut count = 0;
 
         for index in 0..times_len {
-            let is_query_time_between = query_time >= start_time[index] && query_time <= end_time[index];
+            let is_query_time_between = query_time >= start_time[index]
+                && query_time <= end_time[index];
             if is_query_time_between {
                 count += 1;
             }
         }
-        
+
         count
     }
 }
@@ -28,17 +29,11 @@ mod tests {
 
     #[test]
     fn example_one() {
-        assert_eq!(
-            Solution::busy_student(vec![1, 2, 3], vec![3, 2, 7], 4),
-            1
-        );
+        assert_eq!(Solution::busy_student(vec![1, 2, 3], vec![3, 2, 7], 4), 1);
     }
 
     #[test]
     fn example_two() {
-        assert_eq!(
-            Solution::busy_student(vec![4], vec![4], 4),
-            1
-        );
+        assert_eq!(Solution::busy_student(vec![4], vec![4], 4), 1);
     }
 }
