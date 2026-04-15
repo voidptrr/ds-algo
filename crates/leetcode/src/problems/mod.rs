@@ -3,8 +3,8 @@ pub mod hard;
 pub mod medium;
 
 pub use easy::{
-    problem_1108, problem_1394, problem_1455, problem_1464, problem_1470,
-    problem_1480, problem_3028, problem_3099,
+    problem_1108, problem_1394, problem_1450, problem_1455, problem_1464,
+    problem_1470, problem_1480, problem_3028, problem_3099,
 };
 pub use medium::{
     problem_22, problem_39, problem_40, problem_45, problem_46, problem_47,
