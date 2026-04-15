@@ -7,12 +7,12 @@ impl Solution {
         let mut result = vec![0; nums.len() * 2];
 
         let mut outer_index = 0;
-        for index in 0..(nums.len() * 2) {
+        for item in result.iter_mut().take(nums.len() * 2) {
             if outer_index == nums.len() {
                 outer_index = 0;
             }
 
-            result[index] = nums[outer_index];
+            *item = nums[outer_index];
             outer_index += 1;
         }
 
