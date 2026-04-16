@@ -6,7 +6,7 @@ pub use problems::{
     problem_93, problem_216, problem_816, problem_977, problem_1108,
     problem_1394, problem_1450, problem_1455, problem_1464, problem_1470,
     problem_1480, problem_1513, problem_1929, problem_2053, problem_2578,
-    problem_3028, problem_3099,
+    problem_2895, problem_3028, problem_3099,
 };
 
 #[cfg(test)]
