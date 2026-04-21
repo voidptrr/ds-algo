@@ -7,5 +7,6 @@ pkgs.mkShell {
     rustToolchain
     rust-analyzer
     alejandra
+    nil
   ];
 }
