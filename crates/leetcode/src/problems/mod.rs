@@ -12,5 +12,5 @@ pub use medium::{
     problem_48, problem_55, problem_77, problem_78, problem_89, problem_90,
     problem_93, problem_216, problem_816, problem_848, problem_1331,
     problem_1513, problem_1894, problem_2043, problem_2210, problem_2405,
-    problem_2895, problem_3211,
+    problem_2579, problem_2895, problem_3211,
 };
