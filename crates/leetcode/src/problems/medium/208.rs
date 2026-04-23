@@ -1,10 +1,8 @@
 // https://leetcode.com/problems/implement-trie-prefix-tree
 
-use std::collections::HashMap;
-
 #[derive(Default)]
 struct TrieNode {
-    children: HashMap<char, Box<TrieNode>>,
+    children: [Option<Box<TrieNode>>; 26],
     is_end_of_word: bool,
 }
 
@@ -27,8 +25,9 @@ impl Trie {
 
     pub fn insert(&mut self, word: String) {
         let mut current = self.root.as_mut();
-        for c in word.chars() {
-            let child = current.children.entry(c).or_default();
+        for c in word.bytes() {
+            let idx = (c - b'a') as usize;
+            let child = current.children[idx].get_or_insert_with(Box::default);
             current = child.as_mut();
         }
 
@@ -37,8 +36,9 @@ impl Trie {
 
     pub fn search(&self, word: String) -> bool {
         let mut current = self.root.as_ref();
-        for c in word.chars() {
-            if let Some(child) = current.children.get(&c).map(Box::as_ref) {
+        for c in word.bytes() {
+            let idx = (c - b'a') as usize;
+            if let Some(child) = current.children[idx].as_ref() {
                 current = child;
             } else {
                 return false;
@@ -50,8 +50,9 @@ impl Trie {
 
     pub fn starts_with(&self, prefix: String) -> bool {
         let mut current = self.root.as_ref();
-        for c in prefix.chars() {
-            if let Some(child) = current.children.get(&c).map(Box::as_ref) {
+        for c in prefix.bytes() {
+            let idx = (c - b'a') as usize;
+            if let Some(child) = current.children[idx].as_ref() {
                 current = child;
             } else {
                 return false;
