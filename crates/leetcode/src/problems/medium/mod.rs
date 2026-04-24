@@ -22,6 +22,9 @@ pub mod problem_48;
 #[path = "55.rs"]
 pub mod problem_55;
 
+#[path = "746.rs"]
+pub mod problem_746;
+
 #[path = "77.rs"]
 pub mod problem_77;
 
