@@ -1,41 +1,29 @@
-#[path = "1108.rs"]
-pub mod problem_1108;
+pub mod ant_on_the_boundary;
+pub mod check_if_a_word_occurs_as_a_prefix_of_any_word_in_a_sentence;
+pub mod concatenation_of_array;
+pub mod count_special_quadruplets;
+pub mod defanging_an_ip_address;
+pub mod find_lucky_integer_in_an_array;
+pub mod harshad_number;
+pub mod kth_distinct_string_in_an_array;
+pub mod maximum_product_of_two_elements_in_an_array;
+pub mod number_of_students_doing_homework_at_a_given_time;
+pub mod running_sum_of_1d_array;
+pub mod shuffle_the_array;
+pub mod split_with_minimum_sum;
+pub mod squares_of_a_sorted_array;
 
-#[path = "1394.rs"]
-pub mod problem_1394;
-
-#[path = "1450.rs"]
-pub mod problem_1450;
-
-#[path = "1455.rs"]
-pub mod problem_1455;
-
-#[path = "1464.rs"]
-pub mod problem_1464;
-
-#[path = "1470.rs"]
-pub mod problem_1470;
-
-#[path = "1480.rs"]
-pub mod problem_1480;
-
-#[path = "1929.rs"]
-pub mod problem_1929;
-
-#[path = "1995.rs"]
-pub mod problem_1995;
-
-#[path = "2053.rs"]
-pub mod problem_2053;
-
-#[path = "2578.rs"]
-pub mod problem_2578;
-
-#[path = "3028.rs"]
-pub mod problem_3028;
-
-#[path = "3099.rs"]
-pub mod problem_3099;
-
-#[path = "977.rs"]
-pub mod problem_977;
+pub use ant_on_the_boundary as problem_3028;
+pub use check_if_a_word_occurs_as_a_prefix_of_any_word_in_a_sentence as problem_1455;
+pub use concatenation_of_array as problem_1929;
+pub use count_special_quadruplets as problem_1995;
+pub use defanging_an_ip_address as problem_1108;
+pub use find_lucky_integer_in_an_array as problem_1394;
+pub use harshad_number as problem_3099;
+pub use kth_distinct_string_in_an_array as problem_2053;
+pub use maximum_product_of_two_elements_in_an_array as problem_1464;
+pub use number_of_students_doing_homework_at_a_given_time as problem_1450;
+pub use running_sum_of_1d_array as problem_1480;
+pub use shuffle_the_array as problem_1470;
+pub use split_with_minimum_sum as problem_2578;
+pub use squares_of_a_sorted_array as problem_977;

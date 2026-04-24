@@ -1,92 +1,63 @@
-#[path = "22.rs"]
-pub mod problem_22;
+pub mod ambiguous_coordinates;
+pub mod best_reachable_tower;
+pub mod combination_sum;
+pub mod combination_sum_ii;
+pub mod combination_sum_iii;
+pub mod combinations;
+pub mod count_hills_and_valleys_in_an_array;
+pub mod count_total_number_of_colored_cells;
+pub mod delete_characters_to_make_fancy_string;
+pub mod find_the_student_that_will_replace_the_chalk;
+pub mod generate_binary_strings_without_adjacent_zeros;
+pub mod generate_parentheses;
+pub mod gray_code;
+pub mod implement_trie_prefix_tree;
+pub mod jump_game;
+pub mod jump_game_ii;
+pub mod k_radius_subarray_averages;
+pub mod min_cost_climbing_stairs;
+pub mod minimum_number_of_moves_to_seat_everyone;
+pub mod minimum_processing_time;
+pub mod number_of_substrings_with_only_1s;
+pub mod optimal_partition_of_string;
+pub mod permutations;
+pub mod permutations_ii;
+pub mod rank_transform_of_an_array;
+pub mod restore_ip_addresses;
+pub mod rotate_image;
+pub mod shifting_letters;
+pub mod simple_bank_system;
+pub mod subsets;
+pub mod subsets_ii;
 
-#[path = "39.rs"]
-pub mod problem_39;
-
-#[path = "40.rs"]
-pub mod problem_40;
-
-#[path = "45.rs"]
-pub mod problem_45;
-
-#[path = "46.rs"]
-pub mod problem_46;
-
-#[path = "47.rs"]
-pub mod problem_47;
-
-#[path = "48.rs"]
-pub mod problem_48;
-
-#[path = "55.rs"]
-pub mod problem_55;
-
-#[path = "746.rs"]
-pub mod problem_746;
-
-#[path = "77.rs"]
-pub mod problem_77;
-
-#[path = "78.rs"]
-pub mod problem_78;
-
-#[path = "89.rs"]
-pub mod problem_89;
-
-#[path = "90.rs"]
-pub mod problem_90;
-
-#[path = "93.rs"]
-pub mod problem_93;
-
-#[path = "1513.rs"]
-pub mod problem_1513;
-
-#[path = "1894.rs"]
-pub mod problem_1894;
-
-#[path = "1957.rs"]
-pub mod problem_1957;
-
-#[path = "2037.rs"]
-pub mod problem_2037;
-
-#[path = "2043.rs"]
-pub mod problem_2043;
-
-#[path = "2090.rs"]
-pub mod problem_2090;
-
-#[path = "208.rs"]
-pub mod problem_208;
-
-#[path = "216.rs"]
-pub mod problem_216;
-
-#[path = "2210.rs"]
-pub mod problem_2210;
-
-#[path = "2405.rs"]
-pub mod problem_2405;
-
-#[path = "2579.rs"]
-pub mod problem_2579;
-
-#[path = "2895.rs"]
-pub mod problem_2895;
-
-#[path = "3809.rs"]
-pub mod problem_3809;
-
-#[path = "3211.rs"]
-pub mod problem_3211;
-
-#[path = "848.rs"]
-pub mod problem_848;
-
-#[path = "1331.rs"]
-pub mod problem_1331;
-
-#[path = "816.rs"]
-pub mod problem_816;
+pub use ambiguous_coordinates as problem_816;
+pub use best_reachable_tower as problem_3809;
+pub use combination_sum as problem_39;
+pub use combination_sum_ii as problem_40;
+pub use combination_sum_iii as problem_216;
+pub use combinations as problem_77;
+pub use count_hills_and_valleys_in_an_array as problem_2210;
+pub use count_total_number_of_colored_cells as problem_2579;
+pub use delete_characters_to_make_fancy_string as problem_1957;
+pub use find_the_student_that_will_replace_the_chalk as problem_1894;
+pub use generate_binary_strings_without_adjacent_zeros as problem_3211;
+pub use generate_parentheses as problem_22;
+pub use gray_code as problem_89;
+pub use implement_trie_prefix_tree as problem_208;
+pub use jump_game as problem_55;
+pub use jump_game_ii as problem_45;
+pub use k_radius_subarray_averages as problem_2090;
+pub use min_cost_climbing_stairs as problem_746;
+pub use minimum_number_of_moves_to_seat_everyone as problem_2037;
+pub use minimum_processing_time as problem_2895;
+pub use number_of_substrings_with_only_1s as problem_1513;
+pub use optimal_partition_of_string as problem_2405;
+pub use permutations as problem_46;
+pub use permutations_ii as problem_47;
+pub use rank_transform_of_an_array as problem_1331;
+pub use restore_ip_addresses as problem_93;
+pub use rotate_image as problem_48;
+pub use shifting_letters as problem_848;
+pub use simple_bank_system as problem_2043;
+pub use subsets as problem_78;
+pub use subsets_ii as problem_90;
