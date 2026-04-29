@@ -20,10 +20,9 @@ impl Solution {
 
         digits.sort_by(|a, b| if is_negative { b.cmp(a) } else { a.cmp(b) });
 
-        if !is_negative
-            && let Some(idx) = digits.iter().position(|&d| d != 0) {
-                digits.swap(0, idx);
-            }
+        if !is_negative && let Some(idx) = digits.iter().position(|&d| d != 0) {
+            digits.swap(0, idx);
+        }
         let n: i64 = digits.into_iter().fold(0i64, |acc, d| acc * 10 + d);
         if is_negative { -n } else { n }
     }
