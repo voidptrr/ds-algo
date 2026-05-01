@@ -1,7 +1,6 @@
 // https://leetcode.com/problems/maximum-average-subtree
 
 use std::cell::RefCell;
-use std::collections::HashMap;
 use std::rc::Rc;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -23,60 +22,28 @@ impl TreeNode {
 }
 
 pub struct Solution;
-
 impl Solution {
-    pub fn maximum_average_subtree(root: Option<Rc<RefCell<TreeNode>>>) -> f64 {
-        let Some(root) = root else {
-            return 0f64;
+    fn dfs(node: &Option<Rc<RefCell<TreeNode>>>, best: &mut f64) -> (f64, f64) {
+        let Some(node_rc) = node else {
+            return (0.0, 0.0); // (sum, count)
         };
 
-        let mut stack = vec![(root, false)];
-        let mut subtree: HashMap<*const RefCell<TreeNode>, (f64, f64)> =
-            HashMap::new();
-        let mut result = f64::MIN;
+        let node_ref = node_rc.borrow();
+        let (left_sum, left_count) = Self::dfs(&node_ref.left, best);
+        let (right_sum, right_count) = Self::dfs(&node_ref.right, best);
 
-        while let Some((node, visited)) = stack.pop() {
-            if visited {
-                let n = node.borrow();
+        let sum = node_ref.val as f64 + left_sum + right_sum;
+        let count = 1.0 + left_count + right_count;
+        let avg = sum / count;
+        *best = best.max(avg);
 
-                let (left_sum, left_count) = if let Some(left) = &n.left {
-                    subtree
-                        .get(&Rc::as_ptr(left))
-                        .copied()
-                        .unwrap_or((0.0, 0.0))
-                } else {
-                    (0.0, 0.0)
-                };
+        (sum, count)
+    }
 
-                let (right_sum, right_count) = if let Some(right) = &n.right {
-                    subtree
-                        .get(&Rc::as_ptr(right))
-                        .copied()
-                        .unwrap_or((0.0, 0.0))
-                } else {
-                    (0.0, 0.0)
-                };
-
-                let sum = n.val as f64 + left_sum + right_sum;
-                let nodes_count = 1.0 + left_count + right_count;
-                let avg = sum / nodes_count;
-                result = result.max(avg);
-
-                subtree.insert(Rc::as_ptr(&node), (sum, nodes_count));
-            } else {
-                stack.push((Rc::clone(&node), true));
-                let n = node.borrow();
-
-                if let Some(right) = &n.right {
-                    stack.push((Rc::clone(right), false));
-                }
-                if let Some(left) = &n.left {
-                    stack.push((Rc::clone(left), false));
-                }
-            }
-        }
-
-        result
+    pub fn maximum_average_subtree(root: Option<Rc<RefCell<TreeNode>>>) -> f64 {
+        let mut best = f64::MIN;
+        let _ = Self::dfs(&root, &mut best);
+        best
     }
 }
 
