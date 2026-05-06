@@ -6,12 +6,10 @@ impl Solution {
     pub fn largest_even(s: String) -> String {
         let mut bytes = s.as_bytes().to_vec();
 
-        for index in (0..bytes.len()).rev() {
-            if bytes[index] == b'1' {
-                bytes.pop();
-            } else {
-                break;
-            }
+        while let Some(&last) = bytes.last()
+            && last == b'1'
+        {
+            bytes.pop();
         }
 
         String::from_utf8(bytes).unwrap()
