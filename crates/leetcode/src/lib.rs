@@ -12,7 +12,7 @@ pub use problems::{
     problem_2165, problem_2210, problem_2260, problem_2335, problem_2379,
     problem_2405, problem_2486, problem_2578, problem_2579, problem_2895,
     problem_3028, problem_3099, problem_3211, problem_3309, problem_3769,
-    problem_3809, problem_4087,
+    problem_3809, problem_4087, problem_4179,
 };
 
 #[cfg(test)]
