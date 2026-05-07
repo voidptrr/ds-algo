@@ -10,6 +10,6 @@ Source: https://zerotrac.github.io/leetcode_problem_rating
 If a rating is missing there, LeetCode difficulty is used first; otherwise a reasonable estimate is used.
 
 Structure:
-- easy/<problem_name_snake_case>.rs
-- medium/<problem_name_snake_case>.rs
-- hard/<problem_name_snake_case>.rs
+- rating_lt_1300/<problem_name_snake_case>.rs
+- rating_1300_1699/<problem_name_snake_case>.rs
+- rating_gte_1700/<problem_name_snake_case>.rs
