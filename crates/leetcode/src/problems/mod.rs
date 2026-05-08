@@ -11,8 +11,9 @@ pub use rating_1300_1699::{
     problem_1974, problem_1980, problem_2037, problem_2043, problem_2090,
     problem_2165, problem_2210, problem_2231, problem_2260, problem_2335,
     problem_2379, problem_2405, problem_2433, problem_2486, problem_2515,
-    problem_2579, problem_2895, problem_3095, problem_3100, problem_3211,
-    problem_3309, problem_3769, problem_3809, problem_4087, problem_4179,
+    problem_2579, problem_2895, problem_3095, problem_3100, problem_3179,
+    problem_3211, problem_3309, problem_3769, problem_3809, problem_4087,
+    problem_4179,
 };
 pub use rating_lt_1300::{
     problem_977, problem_1108, problem_1370, problem_1394, problem_1450,
